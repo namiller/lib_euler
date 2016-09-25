@@ -17,6 +17,6 @@ file(GLOB SRCS ${PROJECT_SOURCE_DIR}/*.cpp)
 include_directories(${PROJECT_INCLUDE_DIR} ${GENERATED_INCLUDE_PATH})
 add_library(${PROJECT_NAME} SHARED ${SRCS})
 
-target_link_libraries(${PROJECT_NAME} introspection) #TODO: uncomment and change dep -> whatever subproject dependency(s) this has.
+#target_link_libraries(${PROJECT_NAME} dep) #TODO: uncomment and change dep -> whatever subproject dependency(s) this has.
 
 add_subdirectory(test)

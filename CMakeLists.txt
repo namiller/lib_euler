@@ -19,6 +19,7 @@ set(GENERATED_INCLUDE_PATH "${INCLUDE_OUTPUT_PATH}")
 #TODO: change the following lines to add the correct submodule directories
 add_subdirectory(nums)  # this (sub1) must match the name of the directory (not necisarilly the name of the project)
 add_subdirectory(serialize)  # ditto
+add_subdirectory(introspection)  # ditto
 #add_subdirectory(linear)  # ditto
 #add_subdirectory(perms)  # ditto
 #add_subdirectory(big_int)  # ditto
