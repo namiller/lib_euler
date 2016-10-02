@@ -1,0 +1,4 @@
+#ifndef BIG_INT_UNSIGNED
+#define BIG_INT_UNSIGNED
+
+#endif //BIG_INT_UNSIGNED
