@@ -16,7 +16,7 @@ std::pair<int, int> extended_gcd(int a, int b);
 int gcd(int a, int b);
 
 // returns euler's totient function of n.
-int totient(int n);
+long long totient(long long n);
 
 // returns true iff a and be are composed of the same digits
 bool is_perm(int a, int b);
@@ -44,13 +44,18 @@ num mod_exp(num b, t2 e, t3 m) {
 bool is_square(long s);
 
 // returns n C k
-int choose(int n, int k);
+unsigned long long choose(int n, int k);
 
 // TODO: maybe shouldn't be an int...
 // returns the integer concatenation of n1..n2 (in base b = 10 by default).
-long concatenate(int n1, int n2, int b = 10);
+long long concatenate(int n1, int n2, int b = 10);
 
 // returns the nth s-figurate number (ie s=3 returns the nth triangle number, 4-> squares, etc).
 int figurate_number(int s, int n);
+
+int isqrt(unsigned long long v);
+
+// returns the length (number of digits) of the number v in base b (default 10)
+int length(unsigned long long v, int b = 10);
 
 #endif //THEORY_H

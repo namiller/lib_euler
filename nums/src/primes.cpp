@@ -106,28 +106,6 @@ bool probably_prime(long long n) {
   return true;
 }
 
-vector<int> unique_prime_factors(int n) {
-  vector<int> factors;
-  while (n % 2 == 0) {
-    n /= 2;
-    if (factors.size() == 0) {
-      factors.push_back(2);
-    }
-  }
-  for (int f = 3; f*f <= n; f+= 2) {
-    while (n % f == 0) {
-      n /= f;
-      if (factors.size() == 0 || factors.back() != f) {
-        factors.push_back(f);
-      }
-    }
-  }
-  if (n != 1 && (factors.size() == 0 || factors.back() != n)) {
-    factors.push_back(n);
-  }
-  return move(factors);
-}
-
 vector<int> prime_factors(int n) {
   vector<int> factors;
   while (n%2 == 0) {

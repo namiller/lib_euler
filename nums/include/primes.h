@@ -17,7 +17,29 @@ bool is_prime(long long n);
 bool probably_prime(long long n);
 
 // Returns the unique prime factors of n in increasing order (ie 12 -> 2,3)
-std::vector<int> unique_prime_factors(int n);
+//std::vector<int> unique_prime_factors(int n);
+template<typename Num>
+std::vector<Num> unique_prime_factors(Num n) {
+  std::vector<Num> factors;
+  while (n % 2 == 0) {
+    n /= 2;
+    if (factors.size() == 0) {
+      factors.push_back(2);
+    }
+  }
+  for (Num f = 3; f*f <= n; f+= 2) {
+    while (n % f == 0) {
+      n /= f;
+      if (factors.size() == 0 || factors.back() != f) {
+        factors.push_back(f);
+      }
+    }
+  }
+  if (n != 1 && (factors.size() == 0 || factors.back() != n)) {
+    factors.push_back(n);
+  }
+  return move(factors);
+}
 
 // Returns the prime factors of n in non-decreasing order (ie 12 -> 2,2,3)
 std::vector<int> prime_factors(int n);
