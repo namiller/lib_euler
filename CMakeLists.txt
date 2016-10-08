@@ -16,11 +16,10 @@ set(TEST_OUTPUT_PATH "${PROJECT_BINARY_DIR}/tests")
 #must be set elsewhere for subprojects to compile independantly 
 set(GENERATED_INCLUDE_PATH "${INCLUDE_OUTPUT_PATH}")
 
-#TODO: change the following lines to add the correct submodule directories
-add_subdirectory(nums)  # this (sub1) must match the name of the directory (not necisarilly the name of the project)
-add_subdirectory(serialize)  # ditto
-add_subdirectory(introspection)  # ditto
-#add_subdirectory(linear)  # ditto
-#add_subdirectory(perms)  # ditto
-#add_subdirectory(big_int)  # ditto
-#add_subdirectory(test)  # ditto
+add_subdirectory(nums)
+add_subdirectory(serialize)
+add_subdirectory(introspection)
+add_subdirectory(iterables)
+#add_subdirectory(linear)
+#add_subdirectory(big_int)
+#add_subdirectory(test)
