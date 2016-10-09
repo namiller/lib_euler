@@ -10,9 +10,9 @@ cc_test(
   name = "printing_test",
   srcs = ["printing_test.cpp"],
   deps = [
-          "@gtest//:main",
-          ":serialize",
-          "//introspection",
-          ],
+      "//external:gtest",
+      ":serialize",
+      "//introspection",
+      ],
 )
 

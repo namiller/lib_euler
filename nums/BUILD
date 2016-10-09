@@ -10,7 +10,7 @@ cc_test(
   name = "theory_test",
   srcs = ["theory_test.cpp"],
   deps = [
-      "@gtest//:main",
+      "//external:gtest",
       ":nums",
           ],
 )
@@ -19,7 +19,7 @@ cc_test(
   name = "prime_test",
   srcs = ["prime_test.cpp"],
   deps = [
-      "@gtest//:main",
+      "//external:gtest",
       ":nums",
       ],
   )

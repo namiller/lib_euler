@@ -10,7 +10,7 @@ cc_test(
   name = "permutation_test",
   srcs = ["permutation_test.cpp"],
   deps = [
-      "@gtest//:main",
+      "//external:gtest",
       ":iterables"
       ],
 )

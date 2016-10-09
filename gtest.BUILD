@@ -10,8 +10,8 @@ cc_library(
         "googletest/src/*.h",
     ]),
     copts = [
-        "-Iexternal/gtest/googletest/include",
-        "-Iexternal/gtest/googletest"
+        "-Iexternal/gtest_extern/googletest/include",
+        "-Iexternal/gtest_extern/googletest"
     ],
 #    linkopts = ["-pthread"],
 )
