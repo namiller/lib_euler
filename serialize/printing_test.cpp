@@ -64,4 +64,3 @@ TEST(Adapter, precision) {
   ASSERT_EQ("1.00", p_adapter(static_cast<double>(1),2));
   ASSERT_EQ("0.33", p_adapter(static_cast<double>(1.0/3.0),2));
 }
-

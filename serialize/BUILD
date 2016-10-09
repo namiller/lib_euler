@@ -4,6 +4,9 @@ cc_library(
   name = "serialize",
   srcs = [],
   hdrs = ["printing.h"],
+  deps = [
+    "//introspection",
+    ]
 )
 
 cc_test(
@@ -12,7 +15,6 @@ cc_test(
   deps = [
       "//external:gtest",
       ":serialize",
-      "//introspection",
       ],
 )
 

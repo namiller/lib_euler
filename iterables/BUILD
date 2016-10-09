@@ -2,8 +2,8 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
   name = "iterables",
-  srcs = [],
-  hdrs = ["permutation.h"],
+  srcs = ["subset.cpp"],
+  hdrs = ["permutation.h", "subset.h"],
 )
 
 cc_test(
@@ -15,3 +15,11 @@ cc_test(
       ],
 )
 
+cc_test(
+  name = "subset_test",
+  srcs = ["subset_test.cpp"],
+  deps = [
+      "//external:gtest",
+      ":iterables"
+      ],
+)
