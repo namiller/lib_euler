@@ -12,21 +12,21 @@ namespace eul {
     std::string p_adapter(Num f) {
       std::ostringstream out;
       out << std::fixed << std::setprecision(prec) << f;
-      return move(out.str());
+      return out.str();
     }
 
   template<typename Num>
     std::string p_adapter(Num f, int prec) {
       std::ostringstream out;
       out << std::fixed << std::setprecision(prec) << f;
-      return move(out.str());
+      return out.str();
     }
 
   template<typename Num>
     std::string id_adapter(Num x) {
       std::ostringstream out;
       out << x;
-      return std::move(out.str());
+      return out.str();
     }
 
   template<typename T, typename U, std::string(*adapter1)(T) = id_adapter<T>, std::string(* adapter2)(U) = id_adapter<U> >

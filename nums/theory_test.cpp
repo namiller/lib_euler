@@ -1,5 +1,5 @@
-#include "../include/theory.h"
-#include <gtest/gtest.h>
+#include "nums/theory.h"
+#include "gtest/gtest.h"
 #include <vector>
 #include <utility>
 
@@ -233,7 +233,3 @@ TEST(Figurate, large) {
   ASSERT_EQ(10132, figurate_number(20, 34));
 }
 
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

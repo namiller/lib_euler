@@ -1,5 +1,5 @@
-#include "../include/permutation.h"
-#include <gtest/gtest.h>
+#include "iterables/permutation.h"
+#include "gtest/gtest.h"
 #include <vector>
 
 using namespace std;
@@ -7,19 +7,24 @@ using namespace std;
 TEST(PermTest, uniques_size) {
   vector<int> x = {1,2,3,4};
   int c = 0;
-  for (const auto &v : permutations(x)) { //alt syntax
+  for (const auto &v : permutations(x)) {
+    ASSERT_EQ(4, v.size());
     c++;
   }
   ASSERT_EQ(4*3*2*1, c); // n! perms of n unique elms
 }
+
 TEST(PermTest, redund_size) {
   vector<int> x = {1,2,3,4,4};
   int c = 0;
   for (const auto &v : permutations(x)) {
+    ASSERT_EQ(5, v.size());
     c++;
   }
-  ASSERT_EQ(5*4*3*2*1 / 2, c); // n!/p_r(s!) perms of n elms with r redundancy groups of size s
+  // n!/p_r(s!) perms of n elms with r redundancy groups of size s
+  ASSERT_EQ(5*4*3*2*1 / 2, c);
 }
+
 TEST(PermTest, correct_perms) {
   vector<int> x = {1,2};
   PermutationIterable<int> s(x);
@@ -28,25 +33,24 @@ TEST(PermTest, correct_perms) {
   ++it;
   ASSERT_EQ(vector<int>({2,1}), *it);
 }
+
 TEST(PermTest, edge0) {
   vector<int> x = {};
   int c = 0;
   for (const auto &v : permutations(x)) {
+    ASSERT_EQ(0, v.size());
     c++;
   }
   ASSERT_EQ(1, c);
 }
+
 TEST(PermTest, edge1) {
   vector<int> x = {1};
   int c = 0;
   for (const auto &v : permutations(x)) {
+    ASSERT_EQ(1, v.size());
     c++;
   }
   ASSERT_EQ(1, c);
 }
 
-
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

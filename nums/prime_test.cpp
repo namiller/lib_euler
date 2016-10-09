@@ -1,5 +1,5 @@
-#include "../include/primes.h"
-#include <gtest/gtest.h>
+#include "nums/primes.h"
+#include "gtest/gtest.h"
 #include <vector>
 #include <set>
 #include <stdlib.h>
@@ -163,7 +163,3 @@ TEST(ProbablyPrime, pseudo) {
   ASSERT_EQ(false, probably_prime(3825123056546413051LL)); // 2,3,5,7,11,13,17,19,23
 }
 
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

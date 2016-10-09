@@ -1,5 +1,5 @@
-#include "primes.h"
-#include "theory.h" // for mod_exp
+#include "nums/primes.h"
+#include "nums/theory.h"
 #include <vector>
 #include <utility>
 
@@ -46,7 +46,7 @@ vector<int> primes_to_n(int n) {
       }
     }
   }
-  return move(primes);
+  return primes;
 }
 
 bool is_prime(long long n) {
@@ -121,5 +121,5 @@ vector<int> prime_factors(int n) {
   if (n != 1) {
     factors.push_back(n);
   }
-  return move(factors);
+  return factors;
 }

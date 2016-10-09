@@ -1,5 +1,6 @@
-#include "../include/printing.h"
-#include <gtest/gtest.h>
+#include "serialize/printing.h"
+#include "gtest/gtest.h"
+
 #include <vector>
 #include <list>
 #include <utility>
@@ -29,14 +30,9 @@ TEST(Templates, container) {
   ASSERT_EQ(3, b);
   bottom_type<vector<vector<int> > >::type c = 3.0;
   ASSERT_EQ(3, c);
-  //ASSERT_EQ( true, type_id<contained_type<vector<int> >::type> == type_id<int>);
 }
 
 TEST(Vector, OneD) {
-  //string x = test(vector<int>());
-  //contained_type<vector<int> >::type x = "hi";
-  //cout << to_string(vector<int>({1,2,3}));
-  //cout << to_string(int(1), id_adapter<int>);
   ASSERT_EQ("[1, 2, 3, 4, 5, 6]", to_string(vector<int>({1,2,3,4,5,6})));
   ASSERT_EQ("[1, 2, 3, 4, 5, 6]", to_string(vector<int>({1,2,3,4,5,6}),id_adapter<int>));
   ASSERT_EQ("[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]", to_string(vector<float>({1,2,3,4,5,6}), p_adapter<1, float>));
@@ -60,8 +56,6 @@ TEST(Map, OneD) {
 
 TEST(Vector, TwoD) {
   ASSERT_EQ("[[1, 2, 3, 4, 5, 6], [2]]", to_string(vector<vector<int> >({{1,2,3,4,5,6},{2}})));
-  //ASSERT_EQ("[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]", to_string(vector<float>({1,2,3,4,5,6})));
-  //ASSERT_EQ("[one, two, three, four, five, six]", to_string(vector<string>({"one","two","three","four","five","six"})));
 }
 
 TEST(Adapter, precision) {
@@ -71,7 +65,3 @@ TEST(Adapter, precision) {
   ASSERT_EQ("0.33", p_adapter(static_cast<double>(1.0/3.0),2));
 }
 
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

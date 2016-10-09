@@ -1,5 +1,5 @@
-#include "../include/containers.h"
-#include <gtest/gtest.h>
+#include "introspection/containers.h"
+#include "gtest/gtest.h"
 #include <vector>
 #include <set>
 
@@ -23,7 +23,3 @@ TEST(Templates, container) {
   ASSERT_EQ(3, c);
 }
 
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

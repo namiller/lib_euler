@@ -1,5 +1,5 @@
-#include "theory.h"
-#include "primes.h"
+#include "nums/theory.h"
+#include "nums/primes.h"
 #include <vector>
 #include <utility>
 #include <cmath>
@@ -21,7 +21,7 @@ vector<int> continuing_fraction_sqrt(int s) {
     a = (*ret.begin() + m) / d;
     ret.push_back(a);
   }
-  return move(ret);
+  return ret;
 }
 
 void extended_gcd_update(int quotient, int *v, int *old_v) {
@@ -39,7 +39,7 @@ pair<int, int> extended_gcd(int a, int b) {
       extended_gcd_update(quotient, &(vs[i]), &(old_vs[i]));
     }
   }
-  return move(make_pair(old_vs[0], old_vs[1]));
+  return make_pair(old_vs[0], old_vs[1]);
 }
 
 int gcd(int a, int b) {
