@@ -1,4 +1,4 @@
-#include "nums/primes.h"
+#include "euler/nums/primes.h"
 #include "gtest/gtest.h"
 #include <vector>
 #include <set>

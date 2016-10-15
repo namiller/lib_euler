@@ -1,5 +1,5 @@
-#include "nums/primes.h"
-#include "nums/theory.h"
+#include "euler/nums/primes.h"
+#include "euler/nums/theory.h"
 #include <vector>
 #include <utility>
 

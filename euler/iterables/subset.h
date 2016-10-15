@@ -51,6 +51,7 @@ class SubsetIterable {
     std::vector<int> idxs;
     bool incred;
   };
+  using const_iterator = iterator;
   SubsetIterable() = delete;
   SubsetIterable(const std::set<E>& s, int n) {
     univ = s;

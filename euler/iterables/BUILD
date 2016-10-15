@@ -23,3 +23,12 @@ cc_test(
       ":iterables"
       ],
 )
+
+cc_binary(
+  name = "demo",
+  srcs = ["demo.cpp"],
+  deps = [
+      ":iterables",
+      "//euler/serialize"
+      ]
+)

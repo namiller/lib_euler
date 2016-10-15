@@ -1,4 +1,4 @@
-#include "iterables/permutation.h"
+#include "euler/iterables/permutation.h"
 #include "gtest/gtest.h"
 #include <vector>
 

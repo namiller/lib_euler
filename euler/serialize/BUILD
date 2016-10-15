@@ -5,7 +5,7 @@ cc_library(
   srcs = [],
   hdrs = ["printing.h"],
   deps = [
-    "//introspection",
+    "//euler/introspection",
     ]
 )
 

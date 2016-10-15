@@ -1,4 +1,4 @@
-#include "nums/theory.h"
+#include "euler/nums/theory.h"
 #include "gtest/gtest.h"
 #include <vector>
 #include <utility>
