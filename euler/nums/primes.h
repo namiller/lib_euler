@@ -5,16 +5,16 @@
 #include <vector>
 
 // Generate the first n prime numbers
-std::vector<int> n_primes(int n);
+std::vector<int> n_primes(unsigned int n);
 
 // Generate prime numbers up to (but not exceeding) n. If n is prime, it will be included.
 std::vector<int> primes_to_n(int n);
 
 // Determines if n is prime (returns true if it is)
-bool is_prime(long long n);
+bool is_prime(unsigned long long n);
 
 // Miller Rabin primality testing (returns true if n is probably prime)
-bool probably_prime(long long n);
+bool probably_prime(unsigned long long n);
 
 // Returns the unique prime factors of n in increasing order (ie 12 -> 2,3)
 template<typename Num>

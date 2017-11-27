@@ -8,6 +8,8 @@ template<typename E, int height, int width = height>
 class Mat {
  public:
   Mat() {}
+
+	// TODO(namiller): Make this work correctly.
   Mat(std::initializer_list<std::initializer_list<E>> lst) {
     static_assert(lst.size() == height, "incorrect initializer height");
     int x = 0;
@@ -21,6 +23,7 @@ class Mat {
       y++;
     }
   }
+
   static Mat Eye() {
     static_assert(height == width, "Identity only defined for square matrix");
     Mat ret;
@@ -31,6 +34,7 @@ class Mat {
     }
     return ret;
   }
+
   static Mat Unif(E v) {
     Mat ret;
     for (int y = 0; y < height; y++) {
@@ -40,12 +44,15 @@ class Mat {
     }
     return ret;
   }
+
   static Mat Zeros() {
     return Unif(0);
   }
+
   static Mat Ones() {
     return Unif(1);
   }
+
   Mat operator+(const Mat<E, height, width> &rhs) const {
     Mat ret = *this;
     for (int y = 0; y < h; y++) {
@@ -55,6 +62,7 @@ class Mat {
     }
     return ret;
   }
+
   // Implement for other order.
   Mat operator*(const E &rhs) const {
     Mat ret = *this;
@@ -65,9 +73,11 @@ class Mat {
     }
     return std::move(ret);
   }
+
   Mat operator-(const Mat<E, height, width> &rhs) const {
     return *this+(rhs*static_cast<E>(-1));
   }
+
   bool operator==(const Mat<E, height, width> &rhs) const {
     if (rhs.w != w || rhs.h != h) {
       return false;
@@ -81,11 +91,13 @@ class Mat {
     }
     return true;
   }
+
   typedef E value_type;
  private:
   static constexpr int h = height;
   static constexpr int w = width;
   std::array<std::array<E, width>, height> data;
 };
+// TODO(namiller): Implement matrix multiplication as a friend for the appropriate sizes.
 
 #endif //LINEAR_MATRIX_H

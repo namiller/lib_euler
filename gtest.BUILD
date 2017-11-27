@@ -17,5 +17,5 @@ cc_library(
         "-Iexternal/gtest_extern/googlemock",
         "-Iexternal/gtest_extern/googletest"
     ],
-#    linkopts = ["-pthread"],
+    linkopts = ["-pthread", "-lgtest"],
 )

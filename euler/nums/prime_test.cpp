@@ -155,6 +155,12 @@ TEST(ProbablyPrime, fuzz) {
   }
 }
 
+TEST(ProbablyPrime, primes) {
+  for (const auto& prime : n_primes(100)) {
+		ASSERT_TRUE(probably_prime(prime));
+	}
+}
+
 TEST(ProbablyPrime, pseudo) {
   ASSERT_EQ(false, probably_prime(90751)); // 2
   ASSERT_EQ(false, probably_prime(97567)); // 3

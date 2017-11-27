@@ -1,17 +1,19 @@
 #include "euler/nums/primes.h"
 #include "euler/nums/theory.h"
+
 #include <vector>
 #include <utility>
 
 using namespace std;
 
-vector<int> n_primes(int n) {
+vector<int> n_primes(unsigned int n) {
   if (n <= 0) {
     return vector<int>();
   } else if (n == 1) {
     return {2};
   }
   vector<int> primes = {2, 3};
+	primes.reserve(n);
   while (primes.size() < n) {
     for (int c = primes.back() + 2; ; c+=2) {
       bool works = true;
@@ -19,7 +21,10 @@ vector<int> n_primes(int n) {
         if (c%p == 0) {
           works = false;
           break;
-        }
+        } 
+				if (p*p > c) {
+					break;
+				}
       }
       if (works) {
         primes.push_back(c);
@@ -49,14 +54,14 @@ vector<int> primes_to_n(int n) {
   return primes;
 }
 
-bool is_prime(long long n) {
+bool is_prime(unsigned long long n) {
   if (n<2) {
     return false;
   }
   if (n!=2 && n%2 == 0) {
     return false;
   }
-  for (long f = 3; f*f <= n; f+=2) {
+  for (unsigned long long f = 3; f*f <= n; f+=2) {
     if (n%f == 0) {
       return false;
     }
@@ -64,16 +69,15 @@ bool is_prime(long long n) {
   return true;
 }
 
-// TODO: implement Miller Rabin.
-bool probably_prime(long long n) {
-  const vector<int> as = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 27}; // derandomize.
+bool probably_prime(unsigned long long n) {
+  const vector<unsigned int> as = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}; // derandomize.
   if (n == 2 || n == 3) {
     return true;
   } else if (n % 2 == 0 || n < 2) {
     return false;
   }
   // n is now > 3 and odd.
-  long long d = n - 1;
+  unsigned long long d = n - 1;
   long s = 0;
   while (!(d & 1)) {
     d >>= 1;
@@ -85,8 +89,8 @@ bool probably_prime(long long n) {
     if (a > n-2) {
       break;
     }
-    long long x = mod_exp((long long)a, d, n);
-    if ( x == 1 || x == n-1) {
+    unsigned long long x = mod_exp((unsigned long long)a, d, n);
+    if (x == 1 || x == n-1) {
       continue;
     }
     for (int r = 1; r < s; r++) {
